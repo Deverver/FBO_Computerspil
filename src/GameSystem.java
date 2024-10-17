@@ -28,41 +28,65 @@ import java.util.ArrayList;
 public class GameSystem {
 
     //region GameSystem Attributes
-    public static Game[] gamesArray = new Game[5];
-    public static Player[] playersArray = new Player[5];
+    public Game[] gamesArray = new Game[5];
+    public Player[] playersArray = new Player[5];
     private int gameCount;
     private int playerCount;
     //endregion
-
 
     public GameSystem(int gameCount, int playerCount) {
         this.gameCount = gameCount;
         this.playerCount = playerCount;
     }
 
-    public static void addGame(Game gameObject, int index) {
-        gamesArray[index] = gameObject;
+    public void addGame(Game gameObject) {
+        for (int i = 0; i < gamesArray.length; i++) {
+            // Checks if array is full, if it is full, then it creates a new array, that is twice the size and copies the old array data to the new one
+            if (gamesArray[gamesArray.length - 1] != null) {
+                Game[] newGamesArray = new Game[gamesArray.length * 2];
+                for (int j = 0; j < gamesArray.length; j++) {
+                    newGamesArray[j] = gamesArray[j];
+                }
+                gamesArray = newGamesArray;
+            }
+            // Checks if array index is empty, if its is it then fills it what an object.
+            if (gamesArray[i] == null) {
+                gamesArray[i] = gameObject;
+            }
+        }
     }
 
-    public static void addPlayer(Player playerObject, int index) {
-        playersArray[index] = playerObject;
+    public void addPlayer(Player playerObject) {
+        for (int i = 0; i < playersArray.length; i++) {
+            if (playersArray[playersArray.length - 1] != null) {
+                Player[] newPlayerArray = new Player[playersArray.length * 2];
+                for (int j = 0; j < playersArray.length; j++) {
+                    newPlayerArray[j] = playersArray[j];
+                }
+                playersArray = newPlayerArray;
+            }
+
+            if (playersArray[i] == null) {
+                playersArray[i] = playerObject;
+            }
+        }
     }
 
-    public static void displayAllGames() {
+    public void displayAllGames() {
         for (int i = 0; i < gamesArray.length; i++) {
             gamesArray[i].displayGameDetails();
         }
     }
 
-    public static void displayAllPlayers() {
+    public void displayAllPlayers() {
         for (int i = 0; i < playersArray.length; i++) {
             playersArray[i].displayPlayerDetails();
         }
     }
 
-    public static void updatePlayerScore(int playerID, double newScore){
+    public void updatePlayerScore(int playerID, double newScore) {
         playersArray[playerID].updateScore(newScore);
-           }
+    }
 
 
     /*

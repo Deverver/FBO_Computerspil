@@ -2,6 +2,7 @@
 
 public class Main {
     public static void main(String[] args) {
+        GameSystem gameSystem = new GameSystem(5,5);
 
         //region List of Game Objects
         Game game01 = new Game(0,"Bloodborne","Souls-like",60);
@@ -20,19 +21,19 @@ public class Main {
         //endregion
 
         //region Adds Game objects to gamesArray in GameSystem
-        GameSystem.addGame(game01,0);
-        GameSystem.addGame(game02,1);
-        GameSystem.addGame(game03,2);
-        GameSystem.addGame(game04,3);
-        GameSystem.addGame(game05,4);
+        gameSystem.addGame(game01);
+        gameSystem.addGame(game02);
+        gameSystem.addGame(game03);
+        gameSystem.addGame(game04);
+        gameSystem.addGame(game05);
         //endregion
 
         //region Adds Player objects to playersArray in GameSystem
-        GameSystem.addPlayer(player01,0);
-        GameSystem.addPlayer(player02,1);
-        GameSystem.addPlayer(player03,2);
-        GameSystem.addPlayer(player04,3);
-        GameSystem.addPlayer(player05,4);
+        gameSystem.addPlayer(player01);
+        gameSystem.addPlayer(player02);
+        gameSystem.addPlayer(player03);
+        gameSystem.addPlayer(player04);
+        gameSystem.addPlayer(player05);
         //endregion
 
         /* Displays a Game Object or Player Object
@@ -44,8 +45,8 @@ public class Main {
         player04.displayPlayerDetails();
         player04.updateScore(643);
         player04.displayPlayerDetails();
-        GameSystem.updatePlayerScore(3,666);
-        GameSystem.playersArray[3].displayPlayerDetails();
+        gameSystem.updatePlayerScore(3,666);
+        gameSystem.playersArray[3].displayPlayerDetails();
         */
 
         /* Displays information from both Arrays in GameSystem

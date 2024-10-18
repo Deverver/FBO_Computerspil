@@ -63,8 +63,9 @@ public class Main {
         gameSystem.findGameById(5);
         */
 
-        /*
+        /* Displays name and score of the player object with the highest score
         gameSystem.findTopScoringPlayer();
+           Displays total value of the game objects in game system
         System.out.println("If the games in gameSystem were sold they would have value equal a total revenue of: " + gameSystem.calculateTotalRevenue() + "€" );
         */
 

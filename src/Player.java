@@ -1,20 +1,3 @@
-/*
-Opgave 2: Definere klassen Player
-Attributter:
-    int playerId
-    String name
-    int age
-    double score
-
-Metoder:
-    Konstruktør til at initialisere alle attributter.
-    Getter- og setter-metoder for alle attributter.
-    En metode displayDetails til at vise spillerens detaljer.
-    En metode updateScore til at opdatere spillerens score med en ny værdi.
- */
-
-import java.util.ArrayList;
-
 public class Player {
 
     //region Player Attributes
@@ -23,7 +6,6 @@ public class Player {
     private int playerAge;
     private double playerScore;
     //endregion
-
 
     //region Constructors
     public Player() {

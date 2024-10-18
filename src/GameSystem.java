@@ -1,30 +1,3 @@
-/*
-Opgave 3: Administrere spil og spillere
-Opret en klasse GameSystem, der skal administrere spil og spillere.
-Klassen skal have to arrays:
-Et til at gemme spil.
-Et til at gemme spillere.
-
-Implementer følgende metoder:
-Metode addGame til at tilføje et nyt spil til systemet.
-Metode addPlayer til at tilføje en ny spiller til systemet.
-Metode displayAllGames til at vise detaljer om alle spil i systemet.
-Metode displayAllPlayers til at vise detaljer om alle spillere i systemet.
-Metode updatePlayerScore til at opdatere en spillers score baseret på deres playerId.
-Metode findGameById til at finde og returnere et spil baseret på dets gameId.
-Metode findPlayerById til at finde og returnere en spiller baseret på deres playerId.
-
-Opgave 4: Tilføj flere funktioner til GameSystem
-Udvid GameSystem-klassen med følgende funktioner:
-Metode calculateTotalRevenue til at beregne den samlede indtjening fra alle solgte spil.
-Metode findTopScoringPlayer til at finde og returnere spilleren med den højeste score.
-
- */
-
-
-import java.util.ArrayList;
-
-
 public class GameSystem {
 
     //region GameSystem Attributes
@@ -39,6 +12,7 @@ public class GameSystem {
         this.playerCount = playerCount;
     }
 
+    //region GameSystem Methods
     public void addGame(Game gameObject) {
         for (int i = 0; i < gamesArray.length; i++) {
             // Checks if array is full, if it is full, then it creates a new array, that is twice the size and copies the old array data to the new one
@@ -52,6 +26,7 @@ public class GameSystem {
             // Checks if array index is empty, if its is it then fills it what an object.
             if (gamesArray[i] == null) {
                 gamesArray[i] = gameObject;
+                return;
             }
         }
     }
@@ -68,19 +43,20 @@ public class GameSystem {
 
             if (playersArray[i] == null) {
                 playersArray[i] = playerObject;
+                return;
             }
         }
     }
 
     public void displayAllGames() {
-        for (int i = 0; i < gamesArray.length; i++) {
-            gamesArray[i].displayGameDetails();
+        for (Game game : gamesArray) {
+            game.displayGameDetails();
         }
     }
 
     public void displayAllPlayers() {
-        for (int i = 0; i < playersArray.length; i++) {
-            playersArray[i].displayPlayerDetails();
+        for (Player player : playersArray) {
+            player.displayPlayerDetails();
         }
     }
 
@@ -88,23 +64,58 @@ public class GameSystem {
         playersArray[playerID].updateScore(newScore);
     }
 
-
-    /*
-    public static void findGameById(){
-
-
+    public void findGameById(int gameID) {
+        System.out.println("Checking database...");
+        boolean isIDValid = true;
+        for (Game game : gamesArray) {
+            if (gameID != game.getGameID()) {
+                isIDValid = false;
+            } else if (gameID == game.getGameID()) {
+                System.out.println("Match found...");
+                game.displayGameDetails();
+                return;
+            }
+        }
+        if (!isIDValid) {
+            System.out.println("Error: ID had no match in system...");
+        }
     }
 
-    public static void findGameById(){
-
-
+    public void findPlayerById(int playerID) {
+        System.out.println("Checking database...");
+        boolean isIDValid = true;
+        for (Player player : playersArray) {
+            if (playerID != player.getPlayerID()) {
+                isIDValid = false;
+            } else if (playerID == player.getPlayerID()) {
+                System.out.println("Match found...");
+                player.displayPlayerDetails();
+                return;
+            }
+        }
+        if (!isIDValid) {
+            System.out.println("Error: ID had no match in system...");
+        }
     }
 
-    public static void findPlayerById(){
-
-
+    public double calculateTotalRevenue(){
+        double sumOfGamesInSystem = 0;
+        for (Game game : gamesArray) {
+            sumOfGamesInSystem += game.getGamePrice();
+        }
+        return sumOfGamesInSystem;
     }
-    */
 
+    public void findTopScoringPlayer(){
+        int topScoreID = 0;
+        for (int i = 0 ; i < playersArray.length ; i++){
+            if (playersArray[i].getPlayerScore()> topScoreID){
+                topScoreID = i;
+            }
+        }
+        System.out.println("Player with the highest score was: " + playersArray[topScoreID].getPlayerName());
+        System.out.println("Their score was: " + playersArray[topScoreID].getPlayerScore());
+    }
+    //endregion
 
-}
+} // GameSystem Class End

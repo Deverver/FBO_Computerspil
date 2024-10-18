@@ -1,19 +1,3 @@
-/*
-Opgave 1: Definere klassen Game
-Attributter:
-    int playerId
-    String name
-    int age
-    double score
-
-Metoder:
-    Konstruktør til at initialisere alle attributter.
-    Getter- og setter-metoder for alle attributter.
-    En metode displayDetails til at vise spillets detaljer.
- */
-
-import java.util.ArrayList;
-
 public class Game {
 
     //region Game Attributes
@@ -70,7 +54,6 @@ public class Game {
     }
     //endregion
 
-    //region Game Methods
     public void displayGameDetails() {
         System.out.println("Chosen game's ID: " + this.gameID);
         System.out.println("The game is called: " + this.gameTitle);
@@ -78,6 +61,5 @@ public class Game {
         System.out.println("This game costs: " + this.gamePrice);
         System.out.println("***********************************************");
     }// Prints out the Parameters of a Game object
-    //endregion
 
-}// Game End
+}// Game Class End

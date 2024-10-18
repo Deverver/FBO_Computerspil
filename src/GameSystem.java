@@ -26,6 +26,7 @@ public class GameSystem {
             // Checks if array index is empty, if its is it then fills it what an object.
             if (gamesArray[i] == null) {
                 gamesArray[i] = gameObject;
+                gameCount++;
                 return;
             }
         }
@@ -43,6 +44,7 @@ public class GameSystem {
 
             if (playersArray[i] == null) {
                 playersArray[i] = playerObject;
+                playerCount++;
                 return;
             }
         }

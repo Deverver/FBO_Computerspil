@@ -2,7 +2,7 @@
 
 public class Main {
     public static void main(String[] args) {
-        GameSystem gameSystem = new GameSystem(5,5);
+        GameSystem gameSystem = new GameSystem(0,0);
 
         //region List of Game Objects
         Game game01 = new Game(0,"Bloodborne","Souls-like",60);
@@ -69,7 +69,7 @@ public class Main {
         System.out.println("If the games in gameSystem were sold they would have value equal a total revenue of: " + gameSystem.calculateTotalRevenue() + "€" );
         */
 
-        /* Displays the current size of Arrays in gameSystem
+        /* Displays the number of slots filled in each Array in gameSystem
         System.out.println(gameSystem.gameCount);
         System.out.println(gameSystem.playerCount);
         */

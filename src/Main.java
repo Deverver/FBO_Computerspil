@@ -72,5 +72,11 @@ public class Main {
         System.out.println(gameSystem.gameCount);
         System.out.println(gameSystem.playerCount);
         */
+
+        /* Displays that gamesArray slot 5 remains empty as more games has yet to be added
+        System.out.println(gameSystem.gamesArray[5]);
+        */
+
+
     }// main End
 }// class Main End

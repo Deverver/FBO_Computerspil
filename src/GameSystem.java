@@ -3,8 +3,8 @@ public class GameSystem {
     //region GameSystem Attributes
     public Game[] gamesArray = new Game[5];
     public Player[] playersArray = new Player[5];
-    private int gameCount;
-    private int playerCount;
+    public int gameCount;
+    public int playerCount;
     //endregion
 
     public GameSystem(int gameCount, int playerCount) {

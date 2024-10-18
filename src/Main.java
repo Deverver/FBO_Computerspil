@@ -68,7 +68,9 @@ public class Main {
         System.out.println("If the games in gameSystem were sold they would have value equal a total revenue of: " + gameSystem.calculateTotalRevenue() + "€" );
         */
 
-
-
+        /* Displays the current size of Arrays in gameSystem
+        System.out.println(gameSystem.gameCount);
+        System.out.println(gameSystem.playerCount);
+        */
     }// main End
 }// class Main End
